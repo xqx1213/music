@@ -14,8 +14,12 @@ class Item extends Component {
             <li onClick={this.deleteItem}>{this.props.content}</li>
          );
     }
-    componentWillUnmount(){
-        console.log("componentWillUnmount")
+    shouldComponentUpdate(nextProps,nextState){
+        if(nextProps.content !== this.props.content){
+            return true
+        }else{
+            return false
+        }
     }
 }
 
@@ -24,3 +28,5 @@ Item.propTypes={
 }
 
 export default Item;
+
+

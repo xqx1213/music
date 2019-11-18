@@ -20,9 +20,15 @@ class Xiaojiejie extends Component {
         }        
     }
     handleButton(){
-        this.setState({
-            list:[...this.state.list,this.state.inputValue]
-        })
+        let trim=(str)=>{
+            return str.replace(/(^\s*)|(\s*$)/g, "");
+        } 
+        var value=trim(this.state.inputValue);    
+        if(value!==''){
+            this.setState({
+                list:[...this.state.list,value]
+            })
+        }
     }
     handleClick(index){
         let list=this.state.list;
