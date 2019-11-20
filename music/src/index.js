@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'antd/dist/antd.css';
 import './index.css';
-import Xiaojiejie from './xiaojiejie';
-ReactDOM.render(<Xiaojiejie />, document.getElementById('root'));
+import TodoList from './TodoList';
+ReactDOM.render(<TodoList />, document.getElementById('root'));
 

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import Item from './Item';
+import axios from 'axios';
+import 'antd/dist/antd.css';
+import {Input} from 'antd';
 class Xiaojiejie extends Component {
     constructor(props) {
         super(props);
@@ -36,10 +39,18 @@ class Xiaojiejie extends Component {
         this.setState({
             list:list
         })
-    }  
+    } 
+    componentDidMount(){
+        console.log("componentDidMount");
+        axios.get('https://www.easy-mock.com/mock/5cff453bd747843c2c0b=c6a4/example/articleList')
+            .then((res)=>{
+                if(res.status===200){console.log(res)}})
+            .catch((err)=>{console.log(err)});
+    } 
     render() { 
         return ( 
             <div>
+                <Input placeholder="jspang" style={{width:'250px'}}/>
                 <div><input value={this.inputValue} onChange={this.handleChange} /> <button onClick={this.handleButton}> 增加服务 </button></div>
                 <ul>
                     {
